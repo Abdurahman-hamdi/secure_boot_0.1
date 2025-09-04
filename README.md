@@ -37,15 +37,19 @@ for further information of how the apllication should be, plz check : my rep htt
 └── user_port_manage
 ```
 Most important directories:  
+Under src direcory, bootloader.c utilses AES_CBC_decrypt function to decrypt the recieved string from the tool, it also implements check_imageconsistency function which reads the whole application from the flash memory and performs SHA256 and generate the Hash word to be compared with the reserved one.  
 The folder user_port_manage contains configuration for the project( Flash start adress, SHA256 hash word..etc ) open it!  
 The folder Middlewares contains Mbedtls library you can clone it from https://github.com/STMicroelectronics/stm32-mw-mbedtls.git, and follow intructions in its readme to build it for arm-none-eabi-gcc compiler.  
 The folder Library contains STD drivers for stm32f4.  
 the file gcc-arm-none-eabi.cmake contains compiler and linker setting.  
 the file CMakeLists.txt is to build the project and create its make file, and also to integerate Mbedtls library.  
-Ignore gtest as it will be integerated and used in the near feature. 
+Ignore gtest as it will be integerated and used in the near feature.  
+
+
 ## How to setup and build the project:  
 This project is build on ubuntu 20.8.  
 install the compiler for ARM and place its binaries in /opt/arm-gcc/.  
+Unzip the project.  
 After building Mbedtls copy them under Midleware dirctory.  
 Ensure that your cmake version >3.12 to  be able to use it.  
 At project directory run the cmake command "cmake -Bbuild -DCMAKE_TOOLCHAIN_FILE=gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true"  
