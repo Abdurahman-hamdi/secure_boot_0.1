@@ -53,7 +53,7 @@ Unzip the project.
 After building Mbedtls copy them under Midleware dirctory.  
 Ensure that your cmake version >3.12 to  be able to use it.  
 At project directory run the cmake command "cmake -Bbuild -DCMAKE_TOOLCHAIN_FILE=gcc-arm-none-eabi.cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=true"  
-this command will generate build directory and development commands like make flash, enter this directory and Run "make -j8" to compile, link, and generate .elf,.hex,.bin project files.  
+this command will generate build directory and development commands like make flash, enter build directory and Run "make -j8" to compile, link, and generate .elf,.hex,.bin project files.  
 Now you can burn the stm32f4 by run " make flash"
 
 
